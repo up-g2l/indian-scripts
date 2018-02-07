@@ -1,0 +1,52 @@
+<div class="modal fade" id="signinModal" role="dialog">
+    <div class="modal-dialog">    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" >
+          <button type="button" class="close" data-dismiss="modal">x</button>
+          <h2 class="modal-title">&#2360;&#2349;&#2368; &#2350;&#2366;&#2340;&#2381;&#2352;&#2366;&#2323; &#2325;&#2375; &#2360;&#2366;&#2341;
+          </h2>          
+        </div>
+        <div class="row modal-body matra-body" >
+           <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 centered matra">
+              <span class="col-lg-3 col-md-3 col-sm-3 col-xs-3 matra" ng-repeat="mat in matras" ng-bind-html="currAks+mat | safeHTML"></span>
+           </div>         
+           <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 centered imgBoxModal">
+              <img class="img-responsive" ng-src="images/{{modalImg}}"></img>
+           </div>
+        </div>
+        <div class="modal-footer">
+           <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+</div>
+<!-- NEW MATA MODAL-->
+<!--<div class="modal fade" id="signinModal" role="dialog">
+    <div class="modal-dialog">    
+      <!-- Modal content--
+      <div class="modal-content">
+        <div class="modal-header" >
+          <button type="button" class="close" data-dismiss="modal">x</button>
+          <h2 class="modal-title">&#2360;&#2349;&#2368; &#2350;&#2366;&#2340;&#2381;&#2352;&#2366;&#2323; &#2325;&#2375; &#2360;&#2366;&#2341;
+          </h2>       
+        </div>
+        <div class="row modal-body matra-body" >
+           <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 centered matra" ng-init="currMat=''">
+            <span class="col-lg-3 col-md-3 col-sm-3 col-xs-3" ng-repeat="mat in matras" >
+               <button class="btn btn-primary btn-lg"   ng-bind-html="mat | safeHTML" ng-click="currMat=mat"></button>
+            </span> 
+              <button class="btn btn-danger btn-lg aks"  ng-bind-html="currAks+currMat | safeHTML"></button>
+           </div>         
+           <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 centered imgBoxModal">
+              <img class="img-responsive" ng-src="images/{{modalImg}}"></img>
+           </div>
+        </div>
+        <div class="modal-footer">
+           <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+</div>-->

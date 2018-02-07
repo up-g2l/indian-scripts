@@ -1,0 +1,66 @@
+<!--<div class="boxLetter centered">
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 centered aks" >
+		<button type="button" class="btn btn-secondary aks" ng-click="imgShow=!imgShow" ng-bind-html=" akshar.utf8Code | safeHTML"></button>
+	</div> 
+	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 centered  imgBox">
+		<img  class="img-responsive" ng-src="images/{{akshar.exm}}" ng-show="!imgShow" ng-hide="akshar.word==''" ></img>
+	</div>				
+	<span class="exmWord" ng-bind-html=" akshar.word | safeHTML"></span>
+</div>	-->
+<h3 class="head1">Click on the akshar</h3><hr>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 matraBox">	
+		<!--<div class="setBox">
+			<div class="gameSettings ng-hide" ng-show="showSettings">
+               <form class="form-group">
+				  	<label class="inpt">
+				  		<input type="checkbox" class="form-control checkbox-inline" ng-click="toggleShuffle()"> Randomized </input>
+				  	</label>	<br>
+				  	<label class="inpt">
+				  		<input type="checkbox" class="form-control checkbox-inline" ng-click="imgShow = !imgShow" checked="checked"> Hide Images</input>
+				  	</label>
+					  <!--<label class="inpt">
+					  	<input type="radio" class="form-control radio-inline" ng-model="imgShow" ng-value="true">Hide Images  
+					  </label><br>
+					  <label class="inpt">
+					  		<input type="radio" class="form-control   	radio-inline" ng-model="imgShow" ng-value="false">Show Images </label>	----
+			  </form>
+			</div>
+			<div class="btnSet">
+				<button class="btn btn-info btn-lg" ng-click="showSettings=!showSettings">:</button>	
+			</div>			
+		</div>-->
+		<div class="row">
+			<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 centered">
+				<div class="row">
+					<span class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="margin-top:2vmin; margin-bottom: 2vmin; " ng-repeat="mat in matras" >
+	               		<button class="btn btn-success btnMatra"   ng-bind-html="mat | safeHTML" ng-click="nextMatra(mat)"></button>
+	            	</span>	
+				</div>				
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" >
+				<div class="row"> 
+					<div class="center-block centered">
+						<button type="button" 
+								class="btn btn-info btn-block btnAkshar" 
+								data-toggle="modal" 
+								data-target="#signinModal"		
+								ng-click="showMatraModal()"			
+								ng-bind-html=" currMatra | safeHTML">			
+						</button>
+					</div>
+					<div>
+						<button class="btn btn-primary  btn-sm btnGame" ng-click="next(-1)"> << </button>
+						<button class="btn btn-primary  btn-sm btnGame" ng-click="next(1)"> >> </button>
+			        </div>	
+				</div>		
+							
+			</div> 	
+		</div>								
+</div>
+<!--
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 btnBox">
+	<div class="row">
+	<div class="col-xs-6"><button class="btn btn-primary btn-block btn-lg btnGame" ng-click="next(-1)"> << </button></div>
+		<div class="col-xs-6"><button class="btn btn-primary btn-block btn-lg btnGame" ng-click="next(1)"> >> </button></div>		
+	</div>
+</div>	-->
