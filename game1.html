@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Game:Hindi Alphabets</title>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
+	<script src="akshar.js"></script>
+	<script src="includes/ngDraggable.js"></script>
+	<script src="hindiAkshar.js"></script>
+
+	
+
+	<!-- Bootstrap core CSS -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<!-- Optional theme 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">-->
+
+	<link rel="stylesheet" href="akshar.css">
+	<style type="text/css">
+		   *{
+        -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+    }
+    [ng-drag]{
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    [ng-drag]{
+        width: 100px;
+        height: 100px;
+        background: rgba(255,0,0, 0.5);
+        color:white;
+        text-align: center;
+        padding-top:40px;
+        display: inline-block;
+        margin:0 10px;
+        cursor: move;
+    }
+    ul.draggable-objects:after{
+        display: block;
+        content:"";
+        clear:both;
+    }
+    .draggable-objects li{
+        float:left;
+        display: block;
+        width: 120px;
+        height:100px;
+    }
+    [ng-drag].drag-over{
+        border:solid 1px red;
+    }
+    [ng-drag].dragging{
+        opacity: 0.5;
+    }
+    [ng-drop]{
+        background: rgba(0,255,0, 0.5);
+        text-align: center;
+        width: 600px;
+        height: 200px;
+        padding-top:90px;
+        display: block;
+        margin:20px auto;
+        position: relative;
+    }
+    [ng-drop].drag-enter{
+        border:solid 5px red;
+    }
+    [ng-drop] span.title{
+        display: block;
+        position: absolute;
+        top:50%;
+        left:50%;
+        width: 200px;
+        height: 20px;
+        margin-left: -100px;
+        margin-top: -10px;
+    }
+    [ng-drop] div{
+        position: relative;
+        z-index: 2;
+    }
+
+
+	</style>
+
+</head>
+
+<body ng-app="game1App" ng-controller="game1Ctrl">
+
+	<div class="container-fluid">
+		<h2 class="head1" >Match the letter with the picture</h2><hr>
+		<div class="row  col-lg-6 col-md-8 col-md-offset-2 col-md-offset-3 " style="border:1px solid #BBBBBB;">	
+		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 centered  imgBox">
+					<img class="img-responsive" ng-src="images/a.jpeg"></img>
+			</div>
+			<ul class="draggable-objects">
+	            <li  ng-repeat="obj in draggableObjects" >
+	                <div ng-drag="true" ng-drag-data="obj" data-allow-transform="true" > 
+	                      <span style="color:#888888">Hi</span>	                	
+	                </div>
+	            </li>
+	        </ul>
+
+      <hr/>
+      <div ng-drop="true" ng-drop-success="onDropComplete1($data,$event)">
+          <span class="title">Drop area #1</span>
+
+          <div ng-repeat="obj in droppedObjects1" ng-drag="true" ng-drag-data="obj" ng-drag-success="onDragSuccess1($data,$event)" ng-center-anchor="{{centerAnchor}}">
+              {{obj.name}}
+          </div>
+
+      </div>
+
+      <div ng-drop="true" ng-drop-success="onDropComplete2($data,$event)">
+          <span class="title">Drop area #2</span>
+
+          <div ng-repeat="obj in droppedObjects2" ng-drag="true" ng-drag-data="obj" ng-drag-success="onDragSuccess2($data,$event)" ng-center-anchor="{{centerAnchor}}">
+              {{obj.name}}
+          </div>
+
+      </div>
+		</div> 
+	</div>
+</body>
+<script type="text/javascript">
+	angular.module('game1App',['ngDraggable'])
+	.controller('game1Ctrl', function ($scope) {
+        $scope.centerAnchor = true;
+        $scope.toggleCenterAnchor = function () {$scope.centerAnchor = !$scope.centerAnchor}
+        $scope.draggableObjects = [{utf8Code:'&#2309;', exm:"a.jpeg",  word:"&#2309;&#2344;&#2366;&#2352;", matra:"", vizbl:'true'},
+									{utf8Code:'&#2310;', exm:"aa.jpeg",  word:"&#2310;&#2350;", matra:"&#2366;", vizbl:'true'},
+									{utf8Code:'&#2311;', exm:"i.jpeg",  word:"&#2311;&#2350;&#2354;&#2368;", matra:"&#2367;", vizbl:'true'}];
+        $scope.droppedObjects1 = [];
+        $scope.droppedObjects2= [];
+        $scope.onDropComplete1=function(data,evt){
+            var index = $scope.droppedObjects1.indexOf(data);
+            if (index == -1)
+            $scope.droppedObjects1.push(data);
+        }
+        $scope.onDragSuccess1=function(data,evt){
+            console.log("133","$scope","onDragSuccess1", "", evt);
+            var index = $scope.droppedObjects1.indexOf(data);
+            if (index > -1) {
+                $scope.droppedObjects1.splice(index, 1);
+            }
+        }
+        $scope.onDragSuccess2=function(data,evt){
+            var index = $scope.droppedObjects2.indexOf(data);
+            if (index > -1) {
+                $scope.droppedObjects2.splice(index, 1);
+            }
+        }
+        $scope.onDropComplete2=function(data,evt){
+            var index = $scope.droppedObjects2.indexOf(data);
+            if (index == -1) {
+                $scope.droppedObjects2.push(data);
+            }
+        }
+        var inArray = function(array, obj) {
+            var index = array.indexOf(obj);
+        }
+      });
+
+
+
+</script>
+</html>
+<!-- 
+				<form class="form-group">
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" >
+								<span  my-draggable ng-bind-html="'&#2325;' | safeHTML"></span>			
+						        <span  my-draggable ng-bind-html="'&#2326;' | safeHTML"></span>
+						        <span  my-draggable ng-bind-html="'&#2327;' | safeHTML"></span>
+							</div>
+					<label class="game1"><input type="radio" class="game1"></input> <button type="button" class="btn btn-secondary aks" ng-click="imgShow=!imgShow" ng-bind-html=" akshar.utf8Code | safeHTML"></button></label><br>
+					<label class="game1"><input type="radio" class="game1"></input><button type="button" class="btn btn-secondary aks" ng-click="imgShow=!imgShow" ng-bind-html=" akshar.utf8Code | safeHTML"></button></label><br>
+					<label class="game1"><input type="radio" class="game1"></input><button type="button" class="btn btn-secondary aks" ng-click="imgShow=!imgShow" ng-bind-html=" akshar.utf8Code | safeHTML"></button></label><br>
+				</form>
+
+-->

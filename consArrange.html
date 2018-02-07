@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Hindi Alphabets</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+	<script src="js/akshar.js"></script>
+	<script src="js/hindiAkshar.js"></script>
+
+	
+	<!-- Latest compiled and minified JavaScript -->
+  <!-- Bootstrap core CSS -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">-->
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/aksharArrange.css">
+
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+<game-header></game-header>
+	<div class=" centered aksSettings">
+		<form class="form-group">
+			  	<label class="inpt">
+			  		<input type="checkbox" class="form-control checkbox-inline" ng-click="toggleShuffle()"> Randomized </input>
+			  	</label>	
+				  <label class="inpt"><input type="radio" class="form-control radio-inline" ng-model="imageShow" ng-value="true">Hide Images  </label>
+				  <label class="inpt"><input type="radio" class="form-control   	radio-inline" ng-model="imageShow" ng-value="false">Show Images   </label>	
+		  </form>
+	</div>
+	  
+	<div class="container-fluid"><br><br><br>
+	  <h2 class="head1" >Click on the letters in order.</h2><hr> 	   
+     <hr>
+<div class="row">
+	<div class="col-sm-6 col-xs-12 leftPanel">
+		<div class="row centered">	
+			<div class="col-xs-2 centered" ng-repeat="akshar in aksConsonants" style=" background-color:#dbdbdb;">	
+			   <hindi-game-tile akshar="akshar" imgdex="$index" ></hindi-game-tile>		
+			</div>
+		</div> 
+	</div>
+	<div class="col-sm-6 col-xs-12  rightPanel">
+		<div class="row centered">	
+			<div class="col-xs-2 centered" ng-repeat="akshar in aksConsonants"  style=" background-color:#974562;">	
+			   <hindi-game-tile akshar="akshar" imgdex="$index" ></hindi-game-tile>		
+			</div>
+		</div> 
+	</div>
+</div>
+
+	<!-- Modal to display matras -->
+	<app-modal></app-modal>
+</div>
+</body>
+</html>

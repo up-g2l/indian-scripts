@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Hindi Alphabets</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+	<script src="js/akshar.js"></script>
+	<script src="js/hindiAkshar.js"></script>
+
+	
+	<!-- Latest compiled and minified JavaScript -->
+  <!-- Bootstrap core CSS -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">-->
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/akshar.css">
+
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+<game-header></game-header>
+	<div class=" centered aksSettings">
+		<form class="form-group">
+			  	<label class="inpt">
+			  		<input type="checkbox" class="form-control checkbox-inline" ng-click="toggleShuffle()"> Randomized </input>
+			  	</label>	
+				  <label class="inpt"><input type="radio" class="form-control radio-inline" ng-model="imageShow" ng-value="true">Hide Images  </label>
+				  <label class="inpt"><input type="radio" class="form-control   	radio-inline" ng-model="imageShow" ng-value="false">Show Images   </label>	
+		  </form>
+	</div>
+	  
+	<div class="container"><br><br><br>
+	  <h2 class="head1" >Hello, teach Hindi alphabets to your child:</h2><hr> 	   
+	<h3 class="head1">
+	   Vowels
+	</h3><hr>
+	<!-- All Consonants -->
+	<h3 class="head1">Consonants</h3><hr>
+	<div class="row centered">	
+		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 centered" ng-repeat="akshar in aksConsonants">	
+		   <hindi-word-tile akshar="akshar" imgdex="$index"></hindi-word-tile>		
+		</div>
+	</div> 
+	<!-- Modal to display matras -->
+	<app-modal></app-modal>
+</div>
+</body>
+</html>
