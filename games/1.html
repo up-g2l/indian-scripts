@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html  ng-app="myApp" >
+<head lang="en">
+    <meta charset="utf-8">
+    <title>Drag & Drop: Multiple listsr</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.min.css" rel="stylesheet">
+    
+    <script src="../includes/angular-dragdrop.min.js"></script>
+    <script src="../includes/jquery.ui.touch-punch.min.js"></script>
+
+
+
+	
+
+	<!-- Bootstrap core CSS -->
+	<!-- Latest compiled and minified CSS
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<!-- Optional theme 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">-->
+
+
+     <style>
+      .thumbnail { height: 280px !important; }
+      .btn-droppable { width: 180px; height: 30px; padding-left: 4px; }
+      .btn-draggable { width: 160px; }
+      .emage { height: 215px; }
+    </style>
+</head>
+
+<body>
+    <div ng-controller="oneCtrl">
+      <div class="navbar-inner">
+        <div class="container form-inline" style="text-align: center;">
+          <div class="btn btn-droppable" ng-repeat="item in list2" data-drop="true" ng-model='list2' jqyoui-droppable="{index: {{$index}}}">
+            <div class="btn btn-info btn-draggable" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list2" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true, onStart:'startCallback(item, $index)', onStop: 'stopCallback', onDrag: 'dragCallback'}" ng-hide="!item.title">{{item.title}}</div>
+          </div>
+        </div>
+      </div>
+      <div class='contentWrapper ng-cloak'>
+        <div class='content'>
+          <div class="row-fluid">
+            <ul class="thumbnails">
+              <li class="span3" style='margin-left:10px;' ng-repeat="image in images">
+                <div class="thumbnail">
+                  <div class="caption">
+                    <div class='emage'><img ng-src="https://raw.github.com/codef0rmer/angular-dragdrop/master/demo/assets/img/{{image.thumb}}"/></div>
+                    <p><div class="btn btn-droppable" data-drop="true" ng-model='list1' jqyoui-droppable="{index: {{$index}}, onDrop:'dropCallback',onOver: 'overCallback', onOut: 'outCallback'}">
+                      <div class="btn btn-info btn-draggable" ng-show="list1[$index].title" data-drag="{{list1[$index].drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list1" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}">{{list1[$index].title}}</div>
+                    </div></p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+</body>
+<script type="text/javascript">
+    var myApp = angular.module('myApp', ['ngDragDrop']);
+</script>
+    <script src="../hindiAkshar.js"></script>
+    <script src="game1.js"></script>
+
+</html>
+<!-- 
+				<form class="form-group">
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" >
+								<span  my-draggable ng-bind-html="'&#2325;' | safeHTML"></span>			
+						        <span  my-draggable ng-bind-html="'&#2326;' | safeHTML"></span>
+						        <span  my-draggable ng-bind-html="'&#2327;' | safeHTML"></span>
+							</div>
+					<label class="game1"><input type="radio" class="game1"></input> <button type="button" class="btn btn-secondary aks" ng-click="imgShow=!imgShow" ng-bind-html=" akshar.utf8Code | safeHTML"></button></label><br>
+					<label class="game1"><input type="radio" class="game1"></input><button type="button" class="btn btn-secondary aks" ng-click="imgShow=!imgShow" ng-bind-html=" akshar.utf8Code | safeHTML"></button></label><br>
+					<label class="game1"><input type="radio" class="game1"></input><button type="button" class="btn btn-secondary aks" ng-click="imgShow=!imgShow" ng-bind-html=" akshar.utf8Code | safeHTML"></button></label><br>
+				</form>
+
+-->
