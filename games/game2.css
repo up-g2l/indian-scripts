@@ -1,0 +1,58 @@
+
+
+myApp.controller('oneCtrl', function($scope, $timeout) {
+  $scope.vowels = [
+      {utf8Code:'&#2309;', exm:"a.jpeg",  word:"&#2309;&#2344;&#2366;&#2352;", matra:"", vizbl:'true'},
+      {utf8Code:'&#2310;', exm:"aa.jpeg",  word:"&#2310;&#2350;", matra:"&#2366;", vizbl:'true'},
+      {utf8Code:'&#2311;', exm:"i.jpeg",  word:"&#2311;&#2350;&#2354;&#2368;", matra:"&#2367;", vizbl:'true'},
+      {utf8Code:'&#2312;', exm:"ee.jpeg",  word:"&#2312;&#2354;", matra:"&#2368;", vizbl:'true'},
+      {utf8Code:'&#2313;', exm:"u.jpeg",  word:"&#2313;&#2354;&#2381;&#2354;&#2369;", matra:"&#2369;", vizbl:'true'},
+      {utf8Code:'&#2314;', exm:"oo.jpeg",  word:"&#2314;&#2344;", matra:"&#2370;", vizbl:'true'},
+      {utf8Code:'&#2319;', exm:"e.jpeg",  word:"&#2319;&#2325;&#2340;&#2366;&#2352;&#2366;", matra:"&#2375;", vizbl:'true'},
+      {utf8Code:'&#2320;', exm:"ai.jpeg",  word:"&#2320;&#2344;&#2325;", matra:"&#2376;", vizbl:'true'},
+      {utf8Code:'&#2323;', exm:"o.jpeg",  word:"&#2323;&#2326;&#2354;&#2368;", matra:"&#2379;", vizbl:'true'},
+      {utf8Code:'&#2324;', exm:"au.jpeg",  word:"&#2324;&#2352;&#2340;", matra:"&#2380;", vizbl:'true'},
+      {utf8Code:'&#2309;&#2306;', exm:"am.jpeg",  word:"&#2309;&#2306;&#2327;&#2370;&#2352;", matra:"&#2306;", vizbl:'true'},
+      {utf8Code:'&#2309;&#2307;', exm:"",  word:"", matra:"&#2307;", vizbl:'true'}
+      ];
+
+  angular.forEach($scope.vowels, function(val, key) {
+    $scope.list1.push(val.utf8Code);
+  });
+
+
+  $scope.images = [{'thumb': 'a.jpeg'},{'thumb': 'aa.jpeg'},{'thumb': '3.png'},{'thumb': '4.png'}]
+  $scope.list1 = [];
+ 
+  $scope.list2 = [
+    { 'title': 'KnockoutJS', 'drag': true },
+    { 'title': 'EmberJS', 'drag': true },
+    { 'title': 'BackboneJS', 'drag': true },
+    { 'title': 'AngularJS', 'drag': true }
+  ];
+
+  $scope.startCallback = function(event, ui, title) {
+    console.log('You started draggin: ' + title.title);
+    $scope.draggedTitle = title.title;
+  };
+
+  $scope.stopCallback = function(event, ui) {
+    console.log('Why did you stop draggin me?');
+  };
+
+  $scope.dragCallback = function(event, ui) {
+    console.log('hey, look I`m flying');
+  };
+
+  $scope.dropCallback = function(event, ui) {
+    console.log('hey, you dumped me :-(' , $scope.draggedTitle);
+  };
+
+  $scope.overCallback = function(event, ui) {
+    console.log('Look, I`m over you');
+  };
+
+  $scope.outCallback = function(event, ui) {
+    console.log('I`m not, hehe');
+  };
+});
